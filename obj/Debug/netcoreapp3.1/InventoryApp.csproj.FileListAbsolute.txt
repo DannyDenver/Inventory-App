@@ -1,0 +1,17 @@
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.exe
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.deps.json
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.runtimeconfig.json
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.runtimeconfig.dev.json
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.dll
+C:\Users\pr-danieltaylor\Documents\InventoryApp\bin\Debug\netcoreapp3.1\InventoryApp.pdb
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.csprojAssemblyReference.cache
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.csproj.GenerateResource.cache
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.AssemblyInfoInputs.cache
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.AssemblyInfo.cs
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.csproj.CoreCompileInputs.cache
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.dll
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.pdb
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.genruntimeconfig.cache
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.Inventory.resources
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.Properties.Resources.resources
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.Parts.resources
