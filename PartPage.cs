@@ -8,16 +8,16 @@ using System.Windows.Forms;
 
 namespace InventoryApp
 {
-    public partial class Parts : Form
+    public partial class PartPage : Form
     {
-        public Parts()
+        public PartPage()
         {
             InitializeComponent();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            var inventory = (Inventory)Tag;
+            var inventory = (InventoryPage)Tag;
             inventory.Show();
             Close();
         }
@@ -47,6 +47,11 @@ namespace InventoryApp
         private void Parts_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(textBox2.Text);
         }
     }
 }
