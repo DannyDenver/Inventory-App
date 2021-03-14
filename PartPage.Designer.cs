@@ -35,19 +35,24 @@ namespace InventoryApp
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.NameField = new System.Windows.Forms.TextBox();
+            this.Name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.PartID = new System.Windows.Forms.NumericUpDown();
+            this.Inventory = new System.Windows.Forms.NumericUpDown();
+            this.Price = new System.Windows.Forms.NumericUpDown();
+            this.Max = new System.Windows.Forms.NumericUpDown();
+            this.Min = new System.Windows.Forms.NumericUpDown();
+            this.CompanyOrMachineID = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PartID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Max)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
             this.SuspendLayout();
             // 
             // partsCancel_button
@@ -70,7 +75,7 @@ namespace InventoryApp
             this.button1.TabIndex = 2;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label1
             // 
@@ -117,19 +122,12 @@ namespace InventoryApp
             this.label2.TabIndex = 6;
             this.label2.Text = "ID";
             // 
-            // textBox1
+            // Name
             // 
-            this.textBox1.Location = new System.Drawing.Point(174, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 23);
-            this.textBox1.TabIndex = 7;
-            // 
-            // NameField
-            // 
-            this.NameField.Location = new System.Drawing.Point(174, 112);
-            this.NameField.Name = "NameField";
-            this.NameField.Size = new System.Drawing.Size(227, 23);
-            this.NameField.TabIndex = 9;
+            this.Name.Location = new System.Drawing.Point(174, 112);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(227, 23);
+            this.Name.TabIndex = 9;
             // 
             // label3
             // 
@@ -140,14 +138,6 @@ namespace InventoryApp
             this.label3.Size = new System.Drawing.Size(62, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Name";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(174, 157);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 23);
-            this.textBox3.TabIndex = 11;
             // 
             // label4
             // 
@@ -158,13 +148,6 @@ namespace InventoryApp
             this.label4.Size = new System.Drawing.Size(91, 25);
             this.label4.TabIndex = 10;
             this.label4.Text = "Inventory";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(174, 200);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 23);
-            this.textBox4.TabIndex = 13;
             // 
             // label5
             // 
@@ -186,20 +169,6 @@ namespace InventoryApp
             this.label7.TabIndex = 14;
             this.label7.Text = "Max";
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(174, 244);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(118, 23);
-            this.textBox6.TabIndex = 15;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(173, 290);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 23);
-            this.textBox5.TabIndex = 17;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -209,14 +178,6 @@ namespace InventoryApp
             this.label6.Size = new System.Drawing.Size(108, 25);
             this.label6.TabIndex = 16;
             this.label6.Text = "Machine ID";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(363, 243);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(118, 23);
-            this.textBox7.TabIndex = 19;
             // 
             // label8
             // 
@@ -228,33 +189,105 @@ namespace InventoryApp
             this.label8.TabIndex = 18;
             this.label8.Text = "Min";
             // 
+            // PartID
+            // 
+            this.PartID.Location = new System.Drawing.Point(174, 70);
+            this.PartID.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.PartID.Name = "PartID";
+            this.PartID.Size = new System.Drawing.Size(227, 23);
+            this.PartID.TabIndex = 20;
+            // 
+            // Inventory
+            // 
+            this.Inventory.Location = new System.Drawing.Point(174, 163);
+            this.Inventory.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(227, 23);
+            this.Inventory.TabIndex = 21;
+            // 
+            // Price
+            // 
+            this.Price.DecimalPlaces = 2;
+            this.Price.Location = new System.Drawing.Point(174, 201);
+            this.Price.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(227, 23);
+            this.Price.TabIndex = 22;
+            // 
+            // Max
+            // 
+            this.Max.Location = new System.Drawing.Point(174, 243);
+            this.Max.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Max.Name = "Max";
+            this.Max.Size = new System.Drawing.Size(120, 23);
+            this.Max.TabIndex = 23;
+            // 
+            // Min
+            // 
+            this.Min.Location = new System.Drawing.Point(364, 244);
+            this.Min.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Min.Name = "Min";
+            this.Min.Size = new System.Drawing.Size(120, 23);
+            this.Min.TabIndex = 24;
+            // 
+            // CompanyOrMachineID
+            // 
+            this.CompanyOrMachineID.Location = new System.Drawing.Point(174, 285);
+            this.CompanyOrMachineID.Name = "CompanyOrMachineID";
+            this.CompanyOrMachineID.Size = new System.Drawing.Size(227, 23);
+            this.CompanyOrMachineID.TabIndex = 25;
+            // 
             // PartPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 413);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.CompanyOrMachineID);
+            this.Controls.Add(this.Min);
+            this.Controls.Add(this.Max);
+            this.Controls.Add(this.Price);
+            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.PartID);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.NameField);
+            this.Controls.Add(this.Name);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.partsCancel_button);
-            this.Name = "PartPage";
             this.Text = "Part";
-            this.Load += new System.EventHandler(this.Parts_Load);
+            this.Load += new System.EventHandler(this.PartPage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PartID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Max)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Min)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +302,6 @@ namespace InventoryApp
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
@@ -282,6 +314,12 @@ namespace InventoryApp
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox NameField;
+        private System.Windows.Forms.TextBox Name;
+        private System.Windows.Forms.NumericUpDown PartID;
+        private System.Windows.Forms.NumericUpDown Inventory;
+        private System.Windows.Forms.NumericUpDown Price;
+        private System.Windows.Forms.NumericUpDown Max;
+        private System.Windows.Forms.NumericUpDown Min;
+        private System.Windows.Forms.TextBox CompanyOrMachineID;
     }
 }

@@ -5,7 +5,7 @@ namespace InventoryApp
 {
     public partial class InventoryPage : Form
     {    
-        public void formatDGV(DataGridView d)
+        public void formatProductDGV(DataGridView d)
         {
             d.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             d.RowHeadersVisible = true;
@@ -41,6 +41,32 @@ namespace InventoryApp
             col6.HeaderText = "Max";
             d.Columns.Add(col6);
         }
+        public void formatPartDGV(DataGridView d)
+        {
+            d.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            d.RowHeadersVisible = true;
+
+            d.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
+            col1.DataPropertyName = "PartID";
+            col1.HeaderText = "Part ID";
+            d.Columns.Add(col1);
+
+            DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
+            col2.DataPropertyName = "Name";
+            col2.HeaderText = "Part Name";
+            d.Columns.Add(col2);
+
+            DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
+            col3.DataPropertyName = "InStock";
+            col3.HeaderText = "Inventory Level";
+            d.Columns.Add(col3);
+
+            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
+            col4.DataPropertyName = "Price";
+            col4.HeaderText = "Price/ Cost per Unit";
+            d.Columns.Add(col4);
+        }
 
         private void build()
         {
@@ -55,13 +81,18 @@ namespace InventoryApp
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = Inventory.Products;
             dataGridView1.ClearSelection();
+
+            dataGridView2.AutoGenerateColumns = false;
+            dataGridView2.DataSource = Inventory.Parts;
+            dataGridView2.ClearSelection();
         }
 
         public InventoryPage()
         {
             InitializeComponent();
             build();
-            formatDGV(dataGridView1);
+            formatProductDGV(dataGridView1);
+            formatPartDGV(dataGridView2);
             display();
         }
 
@@ -71,49 +102,9 @@ namespace InventoryApp
             MessageBox.Show("Button was clicked.");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Howdy");
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,13 +124,23 @@ namespace InventoryApp
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ModifyPart_buton_Click(object sender, EventArgs e)
         {
+            PartPage partp;
+            var part = dataGridView2.SelectedRows[0].DataBoundItem;
+            if (part is Outsourced) {
+                partp = new PartPage((Outsourced)part);
+                partp.Tag = this;
+                partp.Show(this);
+                Hide();
+                return;
+            }
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            partp = new PartPage((Inhouse)part);
+            partp.Tag = this;
+            partp.Show(this);
+            Hide();
+            return;
 
         }
     }

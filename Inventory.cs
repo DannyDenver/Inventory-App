@@ -1,8 +1,5 @@
 ﻿using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace InventoryApp
 {
@@ -10,8 +7,9 @@ namespace InventoryApp
     {
         private static BindingList<Product> products = new BindingList<Product>();
         public static BindingList<Product> Products { get { return products; } set { products = value; } }
- 
-        public static BindingList<Part> AllParts = new BindingList<Part>();
+
+        private static BindingList<Part> parts = new BindingList<Part>();
+        public static BindingList<Part> Parts { get { return parts; } set { parts = value; } }
 
         public void addProduct(Product newProduct)
         {

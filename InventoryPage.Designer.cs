@@ -40,7 +40,7 @@ namespace InventoryApp
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ModifyPart_buton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -56,7 +56,6 @@ namespace InventoryApp
             this.NameOfResort.ShowAlways = true;
             this.NameOfResort.Tag = "Wolf Creek Ski";
             this.NameOfResort.ToolTipTitle = "Wolf Creek Ski Resort";
-            this.NameOfResort.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // label1
             // 
@@ -80,20 +79,22 @@ namespace InventoryApp
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(558, 273);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(32, 130);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(558, 273);
-            this.dataGridView2.TabIndex = 2;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.TabIndex = 0;
             // 
             // label2
             // 
@@ -151,16 +152,16 @@ namespace InventoryApp
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // ModifyPart_buton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(420, 418);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 35);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Modify";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ModifyPart_buton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ModifyPart_buton.Location = new System.Drawing.Point(420, 418);
+            this.ModifyPart_buton.Name = "ModifyPart_buton";
+            this.ModifyPart_buton.Size = new System.Drawing.Size(82, 35);
+            this.ModifyPart_buton.TabIndex = 11;
+            this.ModifyPart_buton.Text = "Modify";
+            this.ModifyPart_buton.UseVisualStyleBackColor = true;
+            this.ModifyPart_buton.Click += new System.EventHandler(this.ModifyPart_buton_Click);
             // 
             // button3
             // 
@@ -234,7 +235,7 @@ namespace InventoryApp
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ModifyPart_buton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
@@ -264,7 +265,7 @@ namespace InventoryApp
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ModifyPart_buton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

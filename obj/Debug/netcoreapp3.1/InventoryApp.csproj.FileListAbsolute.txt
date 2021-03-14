@@ -16,3 +16,4 @@ C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\Inventor
 C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.InventoryPage.resources
 C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.PartPage.resources
 C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.ProductPage.resources
+C:\Users\pr-danieltaylor\Documents\InventoryApp\obj\Debug\netcoreapp3.1\InventoryApp.ModifyPartPage.resources
