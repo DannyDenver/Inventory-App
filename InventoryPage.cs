@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace InventoryApp
 {
     public partial class InventoryPage : Form
-    {    
+    {
         public void formatProductDGV(DataGridView d)
         {
             d.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -66,14 +68,21 @@ namespace InventoryApp
             col4.DataPropertyName = "Price";
             col4.HeaderText = "Price/ Cost per Unit";
             d.Columns.Add(col4);
+
+            d.Sort(col1, System.ComponentModel.ListSortDirection.Ascending);
         }
 
         private void build()
         {
             Inventory.Products.Clear();
             Inventory.Products.Add(new Product(1, "Screw", (decimal)2.33, 5, 2, 5));
-            Inventory.Products.Add(new Product(2, "Nail", (decimal)4.33,6, 3, 6));
+            Inventory.Products.Add(new Product(2, "Nail", (decimal)4.33, 6, 3, 6));
             Inventory.Products.Add(new Product(3, "Hammer", (decimal)5.33, 7, 4, 7));
+
+            Inventory.Parts.Clear();
+            Inventory.Parts.Add(new Inhouse(1, "screw", (decimal).34, 44, 10, 88, 2));
+            Inventory.Parts.Add(new Inhouse(2, "nut", (decimal).14, 15, 10, 88, 3));
+            Inventory.Parts.Add(new Inhouse(3, "bolt", (decimal).05, 14, 10, 88, 4));
         }
 
         public void display()
@@ -128,7 +137,8 @@ namespace InventoryApp
         {
             PartPage partp;
             var part = dataGridView2.SelectedRows[0].DataBoundItem;
-            if (part is Outsourced) {
+            if (part is Outsourced)
+            {
                 partp = new PartPage((Outsourced)part);
                 partp.Tag = this;
                 partp.Show(this);
@@ -141,7 +151,72 @@ namespace InventoryApp
             partp.Show(this);
             Hide();
             return;
+        }
 
+        private void DeletePartButton_Click(object sender, EventArgs e)
+        {
+            var part = dataGridView2.SelectedRows[0].DataBoundItem;
+            Inventory.Parts.Remove((Part)part);
+
+        }
+
+        private void buttonPartsSearch_Click(object sender, EventArgs e)
+        {
+            BindingList<Part> TempMatchingList = new BindingList<Part>();
+
+            bool found = false;
+            if (textBoxPartsSearch.Text != "")
+            {
+                for (int i = 0; i < InventoryApp.Inventory.Parts.Count; i++)
+                {
+                    if (InventoryApp.Inventory.Parts[i].Name.ToUpper().Contains(textBoxPartsSearch.Text.ToUpper()))
+                    {
+                        TempMatchingList.Add(InventoryApp.Inventory.Parts[i]);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    dataGridView2.DataSource = TempMatchingList;
+                }
+            }
+
+            if (!found)
+            {
+                dataGridView2.DataSource = InventoryApp.Inventory.Parts;
+                MessageBox.Show("No parts found.");
+            }
+
+        }
+
+        private void buttonProductsSearch_Click(object sender, EventArgs e)
+        {
+            BindingList<Product> TempMatchingList = new BindingList<Product>();
+
+            bool found = false;
+            if (textBoxProductsSearch.Text != "")
+            {
+                for (int i = 0; i < InventoryApp.Inventory.Products.Count; i++)
+                {
+                    if (InventoryApp.Inventory.Products[i].Name.ToUpper().Contains(textBoxProductsSearch.Text.ToUpper()))
+                    {
+                        TempMatchingList.Add(InventoryApp.Inventory.Products[i]);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    dataGridView1.DataSource = TempMatchingList;
+                }
+            }
+
+            if (!found)
+            {
+                dataGridView1.DataSource = InventoryApp.Inventory.Products;
+                MessageBox.Show("No parts found.");
+            }
         }
     }
 }

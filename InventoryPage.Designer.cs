@@ -36,17 +36,17 @@ namespace InventoryApp
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxPartsSearch = new System.Windows.Forms.TextBox();
+            this.textBoxProductsSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ModifyPart_buton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.DeletePartButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonPartsSearch = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.buttonProductsSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -116,30 +116,21 @@ namespace InventoryApp
             this.label3.TabIndex = 4;
             this.label3.Text = "Products";
             // 
-            // textBox2
+            // textBoxPartsSearch
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(312, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 29);
-            this.textBox2.TabIndex = 6;
+            this.textBoxPartsSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPartsSearch.Location = new System.Drawing.Point(312, 84);
+            this.textBoxPartsSearch.Name = "textBoxPartsSearch";
+            this.textBoxPartsSearch.Size = new System.Drawing.Size(278, 29);
+            this.textBoxPartsSearch.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxProductsSearch
             // 
-            this.textBox3.Location = new System.Drawing.Point(903, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(278, 23);
-            this.textBox3.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(822, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 30);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Search";
+            this.textBoxProductsSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxProductsSearch.Location = new System.Drawing.Point(904, 83);
+            this.textBoxProductsSearch.Name = "textBoxProductsSearch";
+            this.textBoxProductsSearch.Size = new System.Drawing.Size(278, 29);
+            this.textBoxProductsSearch.TabIndex = 7;
             // 
             // button1
             // 
@@ -163,15 +154,16 @@ namespace InventoryApp
             this.ModifyPart_buton.UseVisualStyleBackColor = true;
             this.ModifyPart_buton.Click += new System.EventHandler(this.ModifyPart_buton_Click);
             // 
-            // button3
+            // DeletePartButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(508, 418);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 35);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.DeletePartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeletePartButton.Location = new System.Drawing.Point(508, 418);
+            this.DeletePartButton.Name = "DeletePartButton";
+            this.DeletePartButton.Size = new System.Drawing.Size(82, 35);
+            this.DeletePartButton.TabIndex = 12;
+            this.DeletePartButton.Text = "Delete";
+            this.DeletePartButton.UseVisualStyleBackColor = true;
+            this.DeletePartButton.Click += new System.EventHandler(this.DeletePartButton_Click);
             // 
             // button4
             // 
@@ -204,15 +196,16 @@ namespace InventoryApp
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // buttonPartsSearch
             // 
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.Location = new System.Drawing.Point(215, 83);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 32);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "Search";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonPartsSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPartsSearch.Location = new System.Drawing.Point(215, 83);
+            this.buttonPartsSearch.Name = "buttonPartsSearch";
+            this.buttonPartsSearch.Size = new System.Drawing.Size(91, 32);
+            this.buttonPartsSearch.TabIndex = 16;
+            this.buttonPartsSearch.Text = "Search";
+            this.buttonPartsSearch.UseVisualStyleBackColor = true;
+            this.buttonPartsSearch.Click += new System.EventHandler(this.buttonPartsSearch_Click);
             // 
             // button8
             // 
@@ -224,22 +217,33 @@ namespace InventoryApp
             this.button8.Text = "Exit";
             this.button8.UseVisualStyleBackColor = true;
             // 
+            // buttonProductsSearch
+            // 
+            this.buttonProductsSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonProductsSearch.Location = new System.Drawing.Point(806, 83);
+            this.buttonProductsSearch.Name = "buttonProductsSearch";
+            this.buttonProductsSearch.Size = new System.Drawing.Size(91, 32);
+            this.buttonProductsSearch.TabIndex = 18;
+            this.buttonProductsSearch.Text = "Search";
+            this.buttonProductsSearch.UseVisualStyleBackColor = true;
+            this.buttonProductsSearch.Click += new System.EventHandler(this.buttonProductsSearch_Click);
+            // 
             // InventoryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1225, 532);
+            this.Controls.Add(this.buttonProductsSearch);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.buttonPartsSearch);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.DeletePartButton);
             this.Controls.Add(this.ModifyPart_buton);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxProductsSearch);
+            this.Controls.Add(this.textBoxPartsSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView2);
@@ -261,18 +265,19 @@ namespace InventoryApp
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPartsSearch;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ModifyPart_buton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button DeletePartButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonPartsSearch;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button buttonProductsSearch;
+        private System.Windows.Forms.TextBox textBoxProductsSearch;
     }
 }
 

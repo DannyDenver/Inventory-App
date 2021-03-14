@@ -32,8 +32,8 @@ namespace InventoryApp
             this.partsCancel_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.InHouseButton = new System.Windows.Forms.RadioButton();
+            this.outSourcedButton = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -87,30 +87,30 @@ namespace InventoryApp
             this.label1.TabIndex = 3;
             this.label1.Text = "Add Part";
             // 
-            // radioButton1
+            // InHouseButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.Location = new System.Drawing.Point(124, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(116, 34);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "In-House";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.InHouseButton.AutoSize = true;
+            this.InHouseButton.Checked = true;
+            this.InHouseButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InHouseButton.Location = new System.Drawing.Point(177, 12);
+            this.InHouseButton.Name = "InHouseButton";
+            this.InHouseButton.Size = new System.Drawing.Size(116, 34);
+            this.InHouseButton.TabIndex = 4;
+            this.InHouseButton.TabStop = true;
+            this.InHouseButton.Text = "In-House";
+            this.InHouseButton.UseVisualStyleBackColor = true;
+            this.InHouseButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // outSourcedButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.Location = new System.Drawing.Point(246, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(139, 34);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "Outsourced";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.outSourcedButton.AutoSize = true;
+            this.outSourcedButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.outSourcedButton.Location = new System.Drawing.Point(299, 12);
+            this.outSourcedButton.Name = "outSourcedButton";
+            this.outSourcedButton.Size = new System.Drawing.Size(139, 34);
+            this.outSourcedButton.TabIndex = 5;
+            this.outSourcedButton.Text = "Outsourced";
+            this.outSourcedButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -276,8 +276,8 @@ namespace InventoryApp
             this.Controls.Add(this.Name);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.outSourcedButton);
+            this.Controls.Add(this.InHouseButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.partsCancel_button);
@@ -321,5 +321,7 @@ namespace InventoryApp
         private System.Windows.Forms.NumericUpDown Max;
         private System.Windows.Forms.NumericUpDown Min;
         private System.Windows.Forms.TextBox CompanyOrMachineID;
+        private System.Windows.Forms.RadioButton InHouseButton;
+        private System.Windows.Forms.RadioButton outSourcedButton;
     }
 }
