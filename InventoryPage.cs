@@ -124,7 +124,7 @@ namespace InventoryApp
             Hide();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void AddProductButton_Click(object sender, EventArgs e)
         {
             ProductPage productPage = new ProductPage();
             productPage.Tag = this;
@@ -155,8 +155,8 @@ namespace InventoryApp
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
-            var part = dataGridView2.SelectedRows[0].DataBoundItem;
-            Inventory.Parts.Remove((Part)part);
+            Part part = dataGridView2.SelectedRows[0].DataBoundItem as Part;
+            Inventory.Parts.Remove(part);
 
         }
 
@@ -217,6 +217,29 @@ namespace InventoryApp
                 dataGridView1.DataSource = InventoryApp.Inventory.Products;
                 MessageBox.Show("No parts found.");
             }
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ModifyProductButton_Click(object sender, EventArgs e)
+        {
+            Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
+
+            ProductPage productPage = new ProductPage(product);
+
+            productPage.Tag = this;
+            productPage.Show(this);
+            Hide();
+            return;
+        }
+
+        private void DeleteProductButton_Click(object sender, EventArgs e)
+        {
+            Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
+            InventoryApp.Inventory.Products.Remove(product);
         }
     }
 }

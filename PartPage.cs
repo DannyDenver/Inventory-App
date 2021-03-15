@@ -156,7 +156,7 @@ namespace InventoryApp
         {
             var inventory = (InventoryPage)Tag;
             inventory.Show();
-            base.Close();
+            Close();
         }
     }
 }

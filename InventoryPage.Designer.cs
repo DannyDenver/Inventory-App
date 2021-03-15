@@ -41,11 +41,11 @@ namespace InventoryApp
             this.button1 = new System.Windows.Forms.Button();
             this.ModifyPart_buton = new System.Windows.Forms.Button();
             this.DeletePartButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.DeleteProductButton = new System.Windows.Forms.Button();
+            this.ModifyProductButton = new System.Windows.Forms.Button();
+            this.AddProductButton = new System.Windows.Forms.Button();
             this.buttonPartsSearch = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.buttonProductsSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -165,36 +165,38 @@ namespace InventoryApp
             this.DeletePartButton.UseVisualStyleBackColor = true;
             this.DeletePartButton.Click += new System.EventHandler(this.DeletePartButton_Click);
             // 
-            // button4
+            // DeleteProductButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(1100, 418);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 35);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = true;
+            this.DeleteProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteProductButton.Location = new System.Drawing.Point(1100, 418);
+            this.DeleteProductButton.Name = "DeleteProductButton";
+            this.DeleteProductButton.Size = new System.Drawing.Size(82, 35);
+            this.DeleteProductButton.TabIndex = 15;
+            this.DeleteProductButton.Text = "Delete";
+            this.DeleteProductButton.UseVisualStyleBackColor = true;
+            this.DeleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
-            // button5
+            // ModifyProductButton
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(1012, 418);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(82, 35);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "Modify";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ModifyProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ModifyProductButton.Location = new System.Drawing.Point(1012, 418);
+            this.ModifyProductButton.Name = "ModifyProductButton";
+            this.ModifyProductButton.Size = new System.Drawing.Size(82, 35);
+            this.ModifyProductButton.TabIndex = 14;
+            this.ModifyProductButton.Text = "Modify";
+            this.ModifyProductButton.UseVisualStyleBackColor = true;
+            this.ModifyProductButton.Click += new System.EventHandler(this.ModifyProductButton_Click);
             // 
-            // button6
+            // AddProductButton
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button6.Location = new System.Drawing.Point(924, 418);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 35);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Add";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddProductButton.Location = new System.Drawing.Point(924, 418);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(82, 35);
+            this.AddProductButton.TabIndex = 13;
+            this.AddProductButton.Text = "Add";
+            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // buttonPartsSearch
             // 
@@ -207,15 +209,16 @@ namespace InventoryApp
             this.buttonPartsSearch.UseVisualStyleBackColor = true;
             this.buttonPartsSearch.Click += new System.EventHandler(this.buttonPartsSearch_Click);
             // 
-            // button8
+            // ExitButton
             // 
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.Location = new System.Drawing.Point(1099, 471);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(82, 35);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Exit";
-            this.button8.UseVisualStyleBackColor = true;
+            this.ExitButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExitButton.Location = new System.Drawing.Point(1099, 471);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(82, 35);
+            this.ExitButton.TabIndex = 17;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // buttonProductsSearch
             // 
@@ -234,11 +237,11 @@ namespace InventoryApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1225, 532);
             this.Controls.Add(this.buttonProductsSearch);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.buttonPartsSearch);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.DeleteProductButton);
+            this.Controls.Add(this.ModifyProductButton);
+            this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.DeletePartButton);
             this.Controls.Add(this.ModifyPart_buton);
             this.Controls.Add(this.button1);
@@ -270,11 +273,11 @@ namespace InventoryApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ModifyPart_buton;
         private System.Windows.Forms.Button DeletePartButton;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button DeleteProductButton;
+        private System.Windows.Forms.Button ModifyProductButton;
+        private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.Button buttonPartsSearch;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button buttonProductsSearch;
         private System.Windows.Forms.TextBox textBoxProductsSearch;

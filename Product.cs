@@ -6,7 +6,7 @@ using System.Text;
 
 namespace InventoryApp
 {
-    class Product
+    public class Product
     {
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int ProductID { get; set;  }
@@ -15,6 +15,8 @@ namespace InventoryApp
         public int  InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
+
+        public Product() { }
 
         public Product(int pId, string name, decimal price, int inStock, int min, int max)
         {

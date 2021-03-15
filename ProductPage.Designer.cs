@@ -29,181 +29,85 @@ namespace InventoryApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.productCancel_button = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.PageLabel = new System.Windows.Forms.Label();
+            this.AddPartButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AllCandidatePartsDataGrid = new System.Windows.Forms.DataGridView();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.SearchPartQuery = new System.Windows.Forms.TextBox();
+            this.DeleteProductAssociationButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.AssociatedPartsDataGrid = new System.Windows.Forms.DataGridView();
+            this.Min = new System.Windows.Forms.NumericUpDown();
+            this.Max = new System.Windows.Forms.NumericUpDown();
+            this.Price = new System.Windows.Forms.NumericUpDown();
+            this.Inventory = new System.Windows.Forms.NumericUpDown();
+            this.ProductID = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ProductName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.AllCandidatePartsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AssociatedPartsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Max)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductID)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox7
+            // SaveButton
             // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(354, 408);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(118, 29);
-            this.textBox7.TabIndex = 38;
+            this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SaveButton.Location = new System.Drawing.Point(855, 742);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(97, 37);
+            this.SaveButton.TabIndex = 21;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // label8
+            // CancelButton
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(303, 406);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 25);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Min";
+            this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CancelButton.Location = new System.Drawing.Point(958, 742);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(97, 37);
+            this.CancelButton.TabIndex = 20;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.productCancel_button_Click);
             // 
-            // textBox6
+            // PageLabel
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(165, 409);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(118, 29);
-            this.textBox6.TabIndex = 34;
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PageLabel.Location = new System.Drawing.Point(16, 15);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(104, 32);
+            this.PageLabel.TabIndex = 22;
+            this.PageLabel.Text = "Add Part";
             // 
-            // label7
+            // AddPartButton
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(72, 409);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 25);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Max";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(165, 365);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 29);
-            this.textBox4.TabIndex = 32;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(66, 360);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 25);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Price";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(165, 322);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 29);
-            this.textBox3.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(29, 322);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 25);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Inventory";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(165, 277);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 29);
-            this.textBox2.TabIndex = 28;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(58, 277);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 25);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Name";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(165, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 29);
-            this.textBox1.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(89, 229);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 25);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "ID";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(855, 742);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 37);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // productCancel_button
-            // 
-            this.productCancel_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productCancel_button.Location = new System.Drawing.Point(958, 742);
-            this.productCancel_button.Name = "productCancel_button";
-            this.productCancel_button.Size = new System.Drawing.Size(97, 37);
-            this.productCancel_button.TabIndex = 20;
-            this.productCancel_button.Text = "Cancel";
-            this.productCancel_button.UseVisualStyleBackColor = true;
-            this.productCancel_button.Click += new System.EventHandler(this.productCancel_button_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(16, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 32);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Add Part";
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(972, 343);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 35);
-            this.button4.TabIndex = 43;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.AddPartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddPartButton.Location = new System.Drawing.Point(972, 343);
+            this.AddPartButton.Name = "AddPartButton";
+            this.AddPartButton.Size = new System.Drawing.Size(82, 35);
+            this.AddPartButton.TabIndex = 43;
+            this.AddPartButton.Text = "Add";
+            this.AddPartButton.UseVisualStyleBackColor = true;
+            this.AddPartButton.Click += new System.EventHandler(this.AddPartButton_Click);
             // 
             // label9
             // 
@@ -215,42 +119,74 @@ namespace InventoryApp
             this.label9.TabIndex = 40;
             this.label9.Text = "All Candidate Parts";
             // 
-            // dataGridView2
+            // AllCandidatePartsDataGrid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(496, 54);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(558, 273);
-            this.dataGridView2.TabIndex = 39;
+            this.AllCandidatePartsDataGrid.AllowUserToAddRows = false;
+            this.AllCandidatePartsDataGrid.AllowUserToDeleteRows = false;
+            this.AllCandidatePartsDataGrid.AllowUserToResizeColumns = false;
+            this.AllCandidatePartsDataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllCandidatePartsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.AllCandidatePartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AllCandidatePartsDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.AllCandidatePartsDataGrid.Location = new System.Drawing.Point(496, 54);
+            this.AllCandidatePartsDataGrid.MultiSelect = false;
+            this.AllCandidatePartsDataGrid.Name = "AllCandidatePartsDataGrid";
+            this.AllCandidatePartsDataGrid.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllCandidatePartsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.AllCandidatePartsDataGrid.RowTemplate.Height = 25;
+            this.AllCandidatePartsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AllCandidatePartsDataGrid.Size = new System.Drawing.Size(558, 273);
+            this.AllCandidatePartsDataGrid.TabIndex = 39;
             // 
-            // button7
+            // SearchButton
             // 
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.Location = new System.Drawing.Point(679, 12);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 32);
-            this.button7.TabIndex = 47;
-            this.button7.Text = "Search";
-            this.button7.UseVisualStyleBackColor = true;
+            this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.Location = new System.Drawing.Point(679, 12);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(91, 32);
+            this.SearchButton.TabIndex = 47;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // SearchPartQuery
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.Location = new System.Drawing.Point(776, 13);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(278, 29);
-            this.textBox8.TabIndex = 46;
+            this.SearchPartQuery.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchPartQuery.Location = new System.Drawing.Point(776, 13);
+            this.SearchPartQuery.Name = "SearchPartQuery";
+            this.SearchPartQuery.Size = new System.Drawing.Size(278, 29);
+            this.SearchPartQuery.TabIndex = 46;
             // 
-            // button3
+            // DeleteProductAssociationButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(972, 698);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 35);
-            this.button3.TabIndex = 50;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.DeleteProductAssociationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteProductAssociationButton.Location = new System.Drawing.Point(972, 698);
+            this.DeleteProductAssociationButton.Name = "DeleteProductAssociationButton";
+            this.DeleteProductAssociationButton.Size = new System.Drawing.Size(82, 35);
+            this.DeleteProductAssociationButton.TabIndex = 50;
+            this.DeleteProductAssociationButton.Text = "Delete";
+            this.DeleteProductAssociationButton.UseVisualStyleBackColor = true;
+            this.DeleteProductAssociationButton.Click += new System.EventHandler(this.DeleteProductAssociationButton_Click);
             // 
             // label6
             // 
@@ -262,76 +198,232 @@ namespace InventoryApp
             this.label6.TabIndex = 49;
             this.label6.Text = "Parts Associated with this Product";
             // 
-            // dataGridView1
+            // AssociatedPartsDataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(496, 409);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(558, 273);
-            this.dataGridView1.TabIndex = 48;
+            this.AssociatedPartsDataGrid.AllowUserToAddRows = false;
+            this.AssociatedPartsDataGrid.AllowUserToDeleteRows = false;
+            this.AssociatedPartsDataGrid.AllowUserToResizeColumns = false;
+            this.AssociatedPartsDataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AssociatedPartsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.AssociatedPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AssociatedPartsDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.AssociatedPartsDataGrid.Location = new System.Drawing.Point(496, 409);
+            this.AssociatedPartsDataGrid.MultiSelect = false;
+            this.AssociatedPartsDataGrid.Name = "AssociatedPartsDataGrid";
+            this.AssociatedPartsDataGrid.ReadOnly = true;
+            this.AssociatedPartsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AssociatedPartsDataGrid.RowTemplate.Height = 25;
+            this.AssociatedPartsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AssociatedPartsDataGrid.Size = new System.Drawing.Size(558, 273);
+            this.AssociatedPartsDataGrid.TabIndex = 48;
             // 
-            // Product
+            // Min
+            // 
+            this.Min.Location = new System.Drawing.Point(351, 386);
+            this.Min.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Min.Name = "Min";
+            this.Min.Size = new System.Drawing.Size(120, 23);
+            this.Min.TabIndex = 62;
+            // 
+            // Max
+            // 
+            this.Max.Location = new System.Drawing.Point(161, 385);
+            this.Max.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Max.Name = "Max";
+            this.Max.Size = new System.Drawing.Size(120, 23);
+            this.Max.TabIndex = 61;
+            // 
+            // Price
+            // 
+            this.Price.DecimalPlaces = 2;
+            this.Price.Location = new System.Drawing.Point(161, 343);
+            this.Price.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(227, 23);
+            this.Price.TabIndex = 60;
+            // 
+            // Inventory
+            // 
+            this.Inventory.Location = new System.Drawing.Point(161, 305);
+            this.Inventory.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(227, 23);
+            this.Inventory.TabIndex = 59;
+            // 
+            // ProductID
+            // 
+            this.ProductID.Location = new System.Drawing.Point(161, 212);
+            this.ProductID.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Size = new System.Drawing.Size(227, 23);
+            this.ProductID.TabIndex = 58;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(299, 383);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 25);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "Min";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(68, 386);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 25);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Max";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(8, 342);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 25);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Price / Cost";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(25, 299);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 25);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Inventory";
+            // 
+            // ProductName
+            // 
+            this.ProductName.Location = new System.Drawing.Point(161, 254);
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Size = new System.Drawing.Size(227, 23);
+            this.ProductName.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(54, 254);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 25);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(85, 206);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 25);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "ID";
+            // 
+            // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1091, 811);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.Min);
+            this.Controls.Add(this.Max);
+            this.Controls.Add(this.Price);
+            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.ProductID);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ProductName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.productCancel_button);
-            this.Name = "Product";
+            this.Controls.Add(this.DeleteProductAssociationButton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.AssociatedPartsDataGrid);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.SearchPartQuery);
+            this.Controls.Add(this.AddPartButton);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.AllCandidatePartsDataGrid);
+            this.Controls.Add(this.PageLabel);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.CancelButton);
+            this.Name = "ProductPage";
             this.Text = "Product";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllCandidatePartsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AssociatedPartsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Min)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Max)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Inventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button productCancel_button;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label PageLabel;
+        private System.Windows.Forms.Button AddPartButton;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView AllCandidatePartsDataGrid;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.TextBox SearchPartQuery;
+        private System.Windows.Forms.Button DeleteProductAssociationButton;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView AssociatedPartsDataGrid;
+        private System.Windows.Forms.NumericUpDown Min;
+        private System.Windows.Forms.NumericUpDown Max;
+        private System.Windows.Forms.NumericUpDown Price;
+        private System.Windows.Forms.NumericUpDown Inventory;
+        private System.Windows.Forms.NumericUpDown ProductID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ProductName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
