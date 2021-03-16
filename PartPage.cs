@@ -48,11 +48,6 @@ namespace InventoryApp
             modifyingPart = part;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            CloseForm();
-        }
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if(label6.Text == "Machine ID")
@@ -69,31 +64,28 @@ namespace InventoryApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (modifyingPart != null)
+            if (validInputs())
             {
-                modifyPart();
-                return;
-            }
+                if (modifyingPart != null)
+                {
+                    modifyPart();
+                    return;
+                }
 
-            if (label6.Text == "Machine ID")
-            {
-                InventoryApp.Inventory.Parts.Add(new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text)));
-            }else
-            {
-                InventoryApp.Inventory.Parts.Add(new Outsourced((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, CompanyOrMachineID.Text));
-            }
 
-            CloseForm();            
-        }
+                if (label6.Text == "Machine ID")
+                {
+                    Inhouse part = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
+                    InventoryApp.Inventory.Parts.Add(part);
+                }
+                else
+                {
+                    Outsourced outsourced = new Outsourced((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, CompanyOrMachineID.Text);
+                    InventoryApp.Inventory.Parts.Add(outsourced);
+                }
 
-        private void PartID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PartPage_Load(object sender, EventArgs e)
-        {
-
+                CloseForm();  
+            }         
         }
 
         private void modifyPart()
@@ -150,6 +142,46 @@ namespace InventoryApp
                     return;
                 }
             }
+        }
+
+        private bool validInputs()
+        {
+            
+            try
+            {
+                if ((int)Min.Value > (int)Max.Value)
+                {
+                    throw new MinGreaterThenMaxException();
+                }
+
+                if (((int)Min.Value > (int)Inventory.Value) || ((int)Max.Value < (int)Inventory.Value))
+                {
+                    throw new InventoryOutOfRangeException();
+                }
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Warning: Machine ID must be an integer.");
+                return false;
+            }
+            catch (MinGreaterThenMaxException ex)
+            {
+                MessageBox.Show("Warning: Min must be less than Max.");
+                return false;
+            }
+            catch (InventoryOutOfRangeException ex)
+            {
+                MessageBox.Show("Warning: Inventory must be between Min and Max.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            CloseForm();
         }
 
         private void CloseForm()

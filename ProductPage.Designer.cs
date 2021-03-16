@@ -94,9 +94,9 @@ namespace InventoryApp
             this.PageLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PageLabel.Location = new System.Drawing.Point(16, 15);
             this.PageLabel.Name = "PageLabel";
-            this.PageLabel.Size = new System.Drawing.Size(104, 32);
+            this.PageLabel.Size = new System.Drawing.Size(146, 32);
             this.PageLabel.TabIndex = 22;
-            this.PageLabel.Text = "Add Part";
+            this.PageLabel.Text = "Add Product";
             // 
             // AddPartButton
             // 
@@ -168,6 +168,7 @@ namespace InventoryApp
             this.SearchButton.TabIndex = 47;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SearchPartQuery
             // 

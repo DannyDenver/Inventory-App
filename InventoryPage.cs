@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace InventoryApp
@@ -15,7 +16,7 @@ namespace InventoryApp
             d.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
             col1.DataPropertyName = "ProductID";
-            col1.HeaderText = "ID";
+            col1.HeaderText = "Product ID";
             d.Columns.Add(col1);
 
             DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
@@ -23,15 +24,15 @@ namespace InventoryApp
             col2.HeaderText = "Name";
             d.Columns.Add(col2);
 
+            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
+            col4.DataPropertyName = "InStock";
+            col4.HeaderText = "Inventory";
+            d.Columns.Add(col4);
+
             DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
             col3.DataPropertyName = "Price";
             col3.HeaderText = "Price";
             d.Columns.Add(col3);
-
-            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
-            col4.DataPropertyName = "InStock";
-            col4.HeaderText = "InStock";
-            d.Columns.Add(col4);
 
             DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
             col5.DataPropertyName = "Min";
@@ -56,18 +57,28 @@ namespace InventoryApp
 
             DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
             col2.DataPropertyName = "Name";
-            col2.HeaderText = "Part Name";
+            col2.HeaderText = "Name";
             d.Columns.Add(col2);
 
             DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
             col3.DataPropertyName = "InStock";
-            col3.HeaderText = "Inventory Level";
+            col3.HeaderText = "Inventory";
             d.Columns.Add(col3);
 
             DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
             col4.DataPropertyName = "Price";
-            col4.HeaderText = "Price/ Cost per Unit";
+            col4.HeaderText = "Price";
             d.Columns.Add(col4);
+
+            DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
+            col5.DataPropertyName = "Min";
+            col5.HeaderText = "Min";
+            d.Columns.Add(col5);
+
+            DataGridViewTextBoxColumn col6 = new DataGridViewTextBoxColumn();
+            col6.DataPropertyName = "Max";
+            col6.HeaderText = "Max";
+            d.Columns.Add(col6);
 
             d.Sort(col1, System.ComponentModel.ListSortDirection.Ascending);
         }
@@ -239,6 +250,13 @@ namespace InventoryApp
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
             Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
+
+            if (product.AssociatedParts.Count() > 0)
+            {
+                MessageBox.Show("Cannot delete product with associated parts. Remove parts from product first.");
+                return;
+            }
+            
             InventoryApp.Inventory.Products.Remove(product);
         }
     }

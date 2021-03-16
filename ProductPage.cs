@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace InventoryApp
 {
@@ -29,7 +30,7 @@ namespace InventoryApp
             AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
             AssociatedPartsDataGrid.DataSource = modifyingProduct.AssociatedParts;
 
-            PageLabel.Text = "Modify Part";
+            PageLabel.Text = "Modify Product";
 
             ProductID.Text = product.ProductID.ToString();
             ProductID.Enabled = false;
@@ -50,43 +51,25 @@ namespace InventoryApp
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (modifyingProduct != null)
+            if (validInputs())
             {
-                foreach(Product p in InventoryApp.Inventory.Products)
+                if (modifyingProduct != null)
                 {
-                   if(p.ProductID == modifyingProduct.ProductID)
-                    {
-                        p.Name = ProductName.Text;
-                        p.Price = decimal.Parse(Price.Text);
-                        p.InStock = int.Parse(Inventory.Text);
-                        p.Min = int.Parse(Min.Text);
-                        p.Max = int.Parse(Max.Text);
-                        p.AssociatedParts = modifyingProduct.AssociatedParts;
-                        CloseForm();
-                        return;
-                    }
+                    modifyProduct();
+                }else
+                {
+                    newProduct.ProductID = int.Parse(ProductID.Text);
+                    newProduct.Name = ProductName.Text;
+                    newProduct.Price = decimal.Parse(Price.Text);
+                    newProduct.InStock = int.Parse(Inventory.Text);
+                    newProduct.Min = int.Parse(Min.Text);
+                    newProduct.Max = int.Parse(Max.Text);
+
+                    InventoryApp.Inventory.Products.Add(newProduct);
                 }
 
-                return;
-            }
-
-            newProduct.ProductID = int.Parse(ProductID.Text);
-            newProduct.Name = ProductName.Text;
-            newProduct.Price = decimal.Parse(Price.Text);
-            newProduct.InStock = int.Parse(Inventory.Text);
-            newProduct.Min = int.Parse(Min.Text);
-            newProduct.Max = int.Parse(Max.Text);
-
-            InventoryApp.Inventory.Products.Add(newProduct);
-
-            CloseForm();
-        }
-
-        private void CloseForm()
-        {
-            var inventory = (InventoryPage)Tag;
-            inventory.Show();
-            Close();
+                CloseForm();
+            };
         }
 
         private void AddPartButton_Click(object sender, EventArgs e)
@@ -101,7 +84,6 @@ namespace InventoryApp
             newProduct.AssociatedParts.Add(part);
         }
 
-
         private void DeleteProductAssociationButton_Click(object sender, EventArgs e)
         {
             if (AssociatedPartsDataGrid.SelectedRows[0].DataBoundItem != null)
@@ -109,8 +91,94 @@ namespace InventoryApp
                 Part part = AssociatedPartsDataGrid.SelectedRows[0].DataBoundItem as Part;
 
                 modifyingProduct.AssociatedParts.Remove(part);
-                //AssociatedPartsDataGrid.DataSource = modifyingProduct.AssociatedParts;
             }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            BindingList<Part> TempMatchingList = new BindingList<Part>();
+
+            bool found = false;
+            if (SearchPartQuery.Text != "")
+            {
+                for (int i = 0; i < InventoryApp.Inventory.Parts.Count; i++)
+                {
+                    if (InventoryApp.Inventory.Parts[i].Name.ToUpper().Contains(SearchPartQuery.Text.ToUpper()))
+                    {
+                        TempMatchingList.Add(InventoryApp.Inventory.Parts[i]);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    AllCandidatePartsDataGrid.DataSource = TempMatchingList;
+                }
+            }
+
+            if (!found)
+            {
+                AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
+                MessageBox.Show("No parts found.");
+            }
+        }
+
+        private void modifyProduct()
+        {
+            foreach (Product p in InventoryApp.Inventory.Products)
+            {
+                if (p.ProductID == modifyingProduct.ProductID)
+                {
+                    p.Name = ProductName.Text;
+                    p.Price = decimal.Parse(Price.Text);
+                    p.InStock = int.Parse(Inventory.Text);
+                    p.Min = int.Parse(Min.Text);
+                    p.Max = int.Parse(Max.Text);
+                    p.AssociatedParts = modifyingProduct.AssociatedParts;
+                    return;
+                }
+            }
+        }
+
+        private bool validInputs()
+        {
+            try
+            {
+                if ((int)Min.Value > (int)Max.Value)
+                {
+                    throw new MinGreaterThenMaxException();
+                }
+
+                if (((int)Min.Value > (int)Inventory.Value) || ((int)Max.Value < (int)Inventory.Value))
+                {
+                    throw new InventoryOutOfRangeException();
+                }
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Warning: Machine ID must be an integer.");
+                return false;
+            }
+            catch (MinGreaterThenMaxException ex)
+            {
+                MessageBox.Show("Warning: Min must be less than Max.");
+                return false;
+            }
+            catch (InventoryOutOfRangeException ex)
+            {
+                MessageBox.Show("Warning: Inventory must be between Min and Max.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void CloseForm()
+        {
+            var inventory = (InventoryPage)Tag;
+            inventory.Show();
+            Close();
         }
     }
 }

@@ -282,7 +282,6 @@ namespace InventoryApp
             this.Controls.Add(this.button1);
             this.Controls.Add(this.partsCancel_button);
             this.Text = "Part";
-            this.Load += new System.EventHandler(this.PartPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PartID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
