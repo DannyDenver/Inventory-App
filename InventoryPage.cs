@@ -44,6 +44,7 @@ namespace InventoryApp
             col6.HeaderText = "Max";
             d.Columns.Add(col6);
         }
+
         public void formatPartDGV(DataGridView d)
         {
             d.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -266,7 +267,6 @@ namespace InventoryApp
                 MessageBox.Show("Cannot delete product with associated parts. Remove parts from product first.");
                 return;
             }
-
 
             string message = string.Format("Are you sure you would like to delete {0}?", product.Name);
             string caption = "Delete Product";
