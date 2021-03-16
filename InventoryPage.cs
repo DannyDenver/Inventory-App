@@ -167,8 +167,18 @@ namespace InventoryApp
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
             Part part = dataGridView2.SelectedRows[0].DataBoundItem as Part;
-            Inventory.Parts.Remove(part);
 
+            string message = string.Format("Are you sure you would like to delete {0}?", part.Name);
+            string caption = "Delete Part";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Inventory.Parts.Remove(part);
+            }
         }
 
         private void buttonPartsSearch_Click(object sender, EventArgs e)
@@ -256,8 +266,19 @@ namespace InventoryApp
                 MessageBox.Show("Cannot delete product with associated parts. Remove parts from product first.");
                 return;
             }
-            
-            InventoryApp.Inventory.Products.Remove(product);
+
+
+            string message = string.Format("Are you sure you would like to delete {0}?", product.Name);
+            string caption = "Delete Product";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                InventoryApp.Inventory.Products.Remove(product);
+            }
         }
     }
 }
