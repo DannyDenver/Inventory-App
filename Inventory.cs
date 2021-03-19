@@ -11,6 +11,8 @@ namespace InventoryApp
         private static BindingList<Part> parts = new BindingList<Part>();
         public static BindingList<Part> Parts { get { return parts; } set { parts = value; } }
 
+        // Product
+
         public void addProduct(Product newProduct)
         {
             Products.Add(newProduct);
@@ -22,5 +24,36 @@ namespace InventoryApp
             return Products.Remove(removeProduct);
         }
 
+        public Product lookupProduct(int productId)
+        {
+            return Products.FirstOrDefault(p => p.ProductID == productId);
+        }
+
+        public void updateProduct(int productId, Product product)
+        {
+
+        }
+
+        // Part
+        public void addPart(Part part)
+        {
+            Parts.Add(part);
+        }
+
+        public void deletePart(Part part)
+        {
+            Parts.Remove(part);
+        }
+
+        public Part lookupPart(int partID)
+        {
+            return Parts.FirstOrDefault(p => p.PartID == partID);
+        }
+
+        public void updatePart(int partID, Part updatedPart)
+        {
+           
+                
+        }
     }
 }

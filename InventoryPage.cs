@@ -209,7 +209,6 @@ namespace InventoryApp
                 dataGridView2.DataSource = InventoryApp.Inventory.Parts;
                 MessageBox.Show("No parts found.");
             }
-
         }
 
         private void buttonProductsSearch_Click(object sender, EventArgs e)
