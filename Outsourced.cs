@@ -4,6 +4,7 @@ using System.Text;
 
 namespace InventoryApp
 {
+    [Serializable]
     public class Outsourced : Part
     {
         public string CompanyName { get; set; }

@@ -6,9 +6,12 @@ using System.Text;
 
 namespace InventoryApp
 {
+    [Serializable]
     public class Product
     {
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
+        private object v;
+
         public int ProductID { get; set;  }
         public string Name { get; set; }
         public decimal Price { get; set; }
@@ -17,7 +20,6 @@ namespace InventoryApp
         public int Max { get; set; }
 
         public Product() { }
-
         public Product(int pId, string name, decimal price, int inStock, int min, int max)
         {
             ProductID = pId;
@@ -26,6 +28,22 @@ namespace InventoryApp
             InStock = inStock;
             Min = min;
             Max = max;
+        }
+
+        public Product(int pId, string name, decimal price, int inStock, int min, int max, BindingList<Part> parts)
+        {
+            ProductID = pId;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
+            AssociatedParts = parts; 
+        }
+
+        public Product(int pId, string name, decimal price, int inStock, int min, int max, object v) : this(pId, name, price, inStock, min, max)
+        {
+            this.v = v;
         }
 
         public void addAssociatedPart(Part part)

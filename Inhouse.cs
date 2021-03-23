@@ -4,6 +4,7 @@ using System.Text;
 
 namespace InventoryApp
 {
+    [Serializable]
     public class Inhouse : Part
     {
         public int MachineID { get; set; }

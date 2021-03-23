@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace InventoryApp
 {
@@ -25,7 +27,7 @@ namespace InventoryApp
         public ProductPage(Product product)
         {
             InitializeComponent();
-            modifyingProduct = product;
+            modifyingProduct = product.DeepClone<Product>();
 
             AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
             AssociatedPartsDataGrid.DataSource = modifyingProduct.AssociatedParts;
@@ -41,12 +43,10 @@ namespace InventoryApp
             Price.Text = product.Price.ToString();
         }
 
-
         private void productCancel_button_Click(object sender, EventArgs e)
         {
-            var inventory = (InventoryPage)Tag;
-            inventory.Show();
-            Close();
+            modifyingProduct = null;
+            CloseForm();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace InventoryApp
 
         private void DeleteProductAssociationButton_Click(object sender, EventArgs e)
         {
-            if (AssociatedPartsDataGrid.SelectedRows[0].DataBoundItem != null)
+            if (AssociatedPartsDataGrid.SelectedRows.Count > 0 && AssociatedPartsDataGrid.SelectedRows[0].DataBoundItem != null)
             {
                 Part part = AssociatedPartsDataGrid.SelectedRows[0].DataBoundItem as Part;
 

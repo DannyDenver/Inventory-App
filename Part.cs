@@ -4,6 +4,7 @@ using System.Text;
 
 namespace InventoryApp
 {
+    [Serializable]
     public abstract class Part
     {
         public int PartID { get; set; }
