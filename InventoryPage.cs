@@ -147,38 +147,44 @@ namespace InventoryApp
 
         private void ModifyPart_buton_Click(object sender, EventArgs e)
         {
-            PartPage partp;
-            var part = dataGridView2.SelectedRows[0].DataBoundItem;
-            if (part is Outsourced)
-            {
-                partp = new PartPage((Outsourced)part);
+            if(dataGridView2.SelectedRows.Count > 0) {
+                PartPage partp;
+
+                var part = dataGridView2.SelectedRows[0].DataBoundItem;
+                if (part is Outsourced)
+                {
+                    partp = new PartPage((Outsourced)part);
+                    partp.Tag = this;
+                    partp.Show(this);
+                    Hide();
+                    return;
+                }
+
+                partp = new PartPage((Inhouse)part);
                 partp.Tag = this;
                 partp.Show(this);
                 Hide();
                 return;
             }
-
-            partp = new PartPage((Inhouse)part);
-            partp.Tag = this;
-            partp.Show(this);
-            Hide();
-            return;
         }
 
         private void DeletePartButton_Click(object sender, EventArgs e)
         {
-            Part part = dataGridView2.SelectedRows[0].DataBoundItem as Part;
-
-            string message = string.Format("Are you sure you would like to delete {0}?", part.Name);
-            string caption = "Delete Part";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(message, caption, buttons);
-
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (dataGridView2.SelectedRows.Count > 0)
             {
-                Inventory.Parts.Remove(part);
+                Part part = dataGridView2.SelectedRows[0].DataBoundItem as Part;
+
+                string message = string.Format("Are you sure you would like to delete {0}?", part.Name);
+                string caption = "Delete Part";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Inventory.Parts.Remove(part);
+                }
             }
         }
 
@@ -247,36 +253,41 @@ namespace InventoryApp
 
         private void ModifyProductButton_Click(object sender, EventArgs e)
         {
-            Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
+                ProductPage productPage = new ProductPage(product);
 
-            ProductPage productPage = new ProductPage(product);
-
-            productPage.Tag = this;
-            productPage.Show(this);
-            Hide();
-            return;
+                productPage.Tag = this;
+                productPage.Show(this);
+                Hide();
+                return;
+            }
         }
 
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
-            Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
-
-            if (product.AssociatedParts.Count() > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Cannot delete product with associated parts. Remove parts from product first.");
-                return;
-            }
+                Product product = dataGridView1.SelectedRows[0].DataBoundItem as Product;
 
-            string message = string.Format("Are you sure you would like to delete {0}?", product.Name);
-            string caption = "Delete Product";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
+                if (product.AssociatedParts.Count() > 0)
+                {
+                    MessageBox.Show("Cannot delete product with associated parts. Remove parts from product first.");
+                    return;
+                }
 
-            result = MessageBox.Show(message, caption, buttons);
+                string message = string.Format("Are you sure you would like to delete {0}?", product.Name);
+                string caption = "Delete Product";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
 
-            if (result == System.Windows.Forms.DialogResult.Yes)
-            {
-                InventoryApp.Inventory.Products.Remove(product);
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    InventoryApp.Inventory.Products.Remove(product);
+                }
             }
         }
     }

@@ -16,6 +16,7 @@ namespace InventoryApp
             InitializeComponent();
             newProduct = new Product();
             AssociatedPartsDataGrid.DataSource = newProduct.AssociatedParts;
+
             AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
             AssociatedPartsDataGrid.AutoGenerateColumns = false;
             AllCandidatePartsDataGrid.AutoGenerateColumns = false;
@@ -58,14 +59,8 @@ namespace InventoryApp
                     modifyProduct();
                 }else
                 {
-                    newProduct.ProductID = int.Parse(ProductID.Text);
-                    newProduct.Name = ProductName.Text;
-                    newProduct.Price = decimal.Parse(Price.Text);
-                    newProduct.InStock = int.Parse(Inventory.Text);
-                    newProduct.Min = int.Parse(Min.Text);
-                    newProduct.Max = int.Parse(Max.Text);
-
-                    InventoryApp.Inventory.Products.Add(newProduct);
+                    Product nProduct = new Product(int.Parse(ProductID.Text), ProductName.Text, decimal.Parse(Price.Text), int.Parse(Inventory.Text), int.Parse(Min.Text), int.Parse(Max.Text), newProduct.AssociatedParts);
+                    InventoryApp.Inventory.addProduct(nProduct);
                 }
 
                 CloseForm();
@@ -74,14 +69,16 @@ namespace InventoryApp
 
         private void AddPartButton_Click(object sender, EventArgs e)
         {
-            Part part = AllCandidatePartsDataGrid.SelectedRows[0].DataBoundItem as Part;
-            if (modifyingProduct != null)
-            {
-                modifyingProduct.AssociatedParts.Add(part);
-                return;
-            }
+            if (AllCandidatePartsDataGrid.SelectedRows.Count > 0) {
+                Part part = AllCandidatePartsDataGrid.SelectedRows[0].DataBoundItem as Part;
+                if (modifyingProduct != null)
+                {
+                    modifyingProduct.AssociatedParts.Add(part);
+                    return;
+                }
 
-            newProduct.AssociatedParts.Add(part);
+                newProduct.AssociatedParts.Add(part);
+            }
         }
 
         private void DeleteProductAssociationButton_Click(object sender, EventArgs e)
@@ -125,19 +122,13 @@ namespace InventoryApp
 
         private void modifyProduct()
         {
-            foreach (Product p in InventoryApp.Inventory.Products)
-            {
-                if (p.ProductID == modifyingProduct.ProductID)
-                {
-                    p.Name = ProductName.Text;
-                    p.Price = decimal.Parse(Price.Text);
-                    p.InStock = int.Parse(Inventory.Text);
-                    p.Min = int.Parse(Min.Text);
-                    p.Max = int.Parse(Max.Text);
-                    p.AssociatedParts = modifyingProduct.AssociatedParts;
-                    return;
-                }
-            }
+            modifyingProduct.Name = ProductName.Text;
+            modifyingProduct.Price = decimal.Parse(Price.Text);
+            modifyingProduct.InStock = int.Parse(Inventory.Text);
+            modifyingProduct.Min = int.Parse(Min.Text);
+            modifyingProduct.Max = int.Parse(Max.Text);
+
+            InventoryApp.Inventory.updateProduct(modifyingProduct.ProductID, modifyingProduct);
         }
 
         private bool validInputs()

@@ -72,10 +72,10 @@ namespace InventoryApp
                     return;
                 }
 
-                if (label6.Text == "Machine ID")
+                if (partIsInHouse)
                 {
-                    Inhouse part = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
-                    InventoryApp.Inventory.addPart(part);
+                    Inhouse inhousePart = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
+                    InventoryApp.Inventory.addPart(inhousePart);
                 }
                 else
                 {
