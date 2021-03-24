@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace InventoryApp
 {
@@ -10,7 +8,6 @@ namespace InventoryApp
     public class Product
     {
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
-        private object v;
 
         public int ProductID { get; set;  }
         public string Name { get; set; }
@@ -41,25 +38,20 @@ namespace InventoryApp
             AssociatedParts = parts; 
         }
 
-        public Product(int pId, string name, decimal price, int inStock, int min, int max, object v) : this(pId, name, price, inStock, min, max)
-        {
-            this.v = v;
-        }
-
         public void addAssociatedPart(Part part)
         {
             AssociatedParts.Add(part);
         }
 
-        public bool removeAssociatedPart(int partId)
+        public bool removeAssociatedPart(int partID)
         {
-            Part part = AssociatedParts.SingleOrDefault(part => part.PartID == partId);
+            Part part = AssociatedParts.SingleOrDefault(part => part.PartID == partID);
             return AssociatedParts.Remove(part);
         }
 
-        public Part lookupAssociatedPart(int partId)
+        public Part lookupAssociatedPart(int partID)
         {
-            return AssociatedParts.FirstOrDefault(p => p.PartID == partId);
+            return AssociatedParts.FirstOrDefault(p => p.PartID == partID);
         }
 
     }

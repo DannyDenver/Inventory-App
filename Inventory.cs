@@ -9,19 +9,17 @@ namespace InventoryApp
         public static BindingList<Product> Products { get { return products; } set { products = value; } }
 
         private static BindingList<Part> parts = new BindingList<Part>();
-        public static BindingList<Part> Parts { get { return parts; } set { parts = value; } }
+        public static BindingList<Part> AllParts { get { return parts; } set { parts = value; } }
 
-        // Product
-
-        public static void addProduct(Product newProduct)
+        public static void addProduct(Product product)
         {
-            Products.Add(newProduct);
+            Products.Add(product);
         }
 
         public static bool removeProduct(int productID)
         {
-            Product removeProduct = Products.SingleOrDefault(p => p.ProductID == productID);
-            return Products.Remove(removeProduct);
+            Product product = Products.FirstOrDefault(p => p.ProductID == productID);
+            return Products.Remove(product);
         }
 
         public static Product lookupProduct(int productId)
@@ -35,25 +33,24 @@ namespace InventoryApp
             addProduct(updatedProduct);
         }
 
-        // Part
         public static void addPart(Part part)
         {
-            Parts.Add(part);
+            AllParts.Add(part);
         }
 
         public static void deletePart(Part part)
         {
-            Parts.Remove(part);
+            AllParts.Remove(part);
         }
 
         public static Part lookupPart(int partID)
         {
-            return Parts.FirstOrDefault(p => p.PartID == partID);
+            return AllParts.FirstOrDefault(p => p.PartID == partID);
         }
 
         public static void updatePart(int partID, Part updatedPart)
         {
-            Part part = Parts.FirstOrDefault(p => p.PartID == partID);
+            Part part = AllParts.FirstOrDefault(p => p.PartID == partID);
             deletePart(part);
             addPart(updatedPart);
         }

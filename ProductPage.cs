@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace InventoryApp
 {
@@ -17,7 +15,7 @@ namespace InventoryApp
             newProduct = new Product();
             AssociatedPartsDataGrid.DataSource = newProduct.AssociatedParts;
 
-            AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
+            AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.AllParts;
             AssociatedPartsDataGrid.AutoGenerateColumns = false;
             AllCandidatePartsDataGrid.AutoGenerateColumns = false;
 
@@ -30,7 +28,7 @@ namespace InventoryApp
             InitializeComponent();
             modifyingProduct = product.DeepClone<Product>();
 
-            AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
+            AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.AllParts;
             AssociatedPartsDataGrid.DataSource = modifyingProduct.AssociatedParts;
 
             PageLabel.Text = "Modify Product";
@@ -98,11 +96,11 @@ namespace InventoryApp
             bool found = false;
             if (SearchPartQuery.Text != "")
             {
-                for (int i = 0; i < InventoryApp.Inventory.Parts.Count; i++)
+                for (int i = 0; i < InventoryApp.Inventory.AllParts.Count; i++)
                 {
-                    if (InventoryApp.Inventory.Parts[i].Name.ToUpper().Contains(SearchPartQuery.Text.ToUpper()))
+                    if (InventoryApp.Inventory.AllParts[i].Name.ToUpper().Contains(SearchPartQuery.Text.ToUpper()))
                     {
-                        TempMatchingList.Add(InventoryApp.Inventory.Parts[i]);
+                        TempMatchingList.Add(InventoryApp.Inventory.AllParts[i]);
                         found = true;
                     }
                 }
@@ -115,7 +113,7 @@ namespace InventoryApp
 
             if (!found)
             {
-                AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.Parts;
+                AllCandidatePartsDataGrid.DataSource = InventoryApp.Inventory.AllParts;
                 MessageBox.Show("No parts found.");
             }
         }

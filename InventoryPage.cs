@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -87,14 +86,13 @@ namespace InventoryApp
         private void build()
         {
             Inventory.Products.Clear();
-            Inventory.Products.Add(new Product(1, "Screw", (decimal)2.33, 5, 2, 5));
-            Inventory.Products.Add(new Product(2, "Nail", (decimal)4.33, 6, 3, 6));
-            Inventory.Products.Add(new Product(3, "Hammer", (decimal)5.33, 7, 4, 7));
+            Inventory.addProduct(new Product(1, "Screw", (decimal)2.33, 5, 2, 5));
+            Inventory.addProduct(new Product(2, "Nail", (decimal)4.33, 6, 3, 6));
+            Inventory.addProduct(new Product(3, "Hammer", (decimal)5.33, 7, 4, 7));
 
-            Inventory.Parts.Clear();
-            Inventory.Parts.Add(new Inhouse(1, "screw", (decimal).34, 44, 10, 88, 2));
-            Inventory.Parts.Add(new Inhouse(2, "nut", (decimal).14, 15, 10, 88, 3));
-            Inventory.Parts.Add(new Inhouse(3, "bolt", (decimal).05, 14, 10, 88, 4));
+            Inventory.addPart(new Inhouse(1, "screw", (decimal).34, 44, 10, 88, 2));
+            Inventory.addPart(new Inhouse(2, "nut", (decimal).14, 15, 10, 88, 3));
+            Inventory.addPart(new Inhouse(3, "bolt", (decimal).05, 14, 10, 88, 4));
         }
 
         public void display()
@@ -104,7 +102,7 @@ namespace InventoryApp
             dataGridView1.ClearSelection();
 
             dataGridView2.AutoGenerateColumns = false;
-            dataGridView2.DataSource = Inventory.Parts;
+            dataGridView2.DataSource = Inventory.AllParts;
             dataGridView2.ClearSelection();
         }
 
@@ -181,9 +179,9 @@ namespace InventoryApp
 
                 result = MessageBox.Show(message, caption, buttons);
 
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    Inventory.Parts.Remove(part);
+                    Inventory.deletePart(part);
                 }
             }
         }
@@ -195,11 +193,11 @@ namespace InventoryApp
             bool found = false;
             if (textBoxPartsSearch.Text != "")
             {
-                for (int i = 0; i < InventoryApp.Inventory.Parts.Count; i++)
+                for (int i = 0; i < Inventory.AllParts.Count; i++)
                 {
-                    if (InventoryApp.Inventory.Parts[i].Name.ToUpper().Contains(textBoxPartsSearch.Text.ToUpper()))
+                    if (Inventory.AllParts[i].Name.ToUpper().Contains(textBoxPartsSearch.Text.ToUpper()))
                     {
-                        TempMatchingList.Add(InventoryApp.Inventory.Parts[i]);
+                        TempMatchingList.Add(Inventory.AllParts[i]);
                         found = true;
                     }
                 }
@@ -212,7 +210,7 @@ namespace InventoryApp
 
             if (!found)
             {
-                dataGridView2.DataSource = InventoryApp.Inventory.Parts;
+                dataGridView2.DataSource = Inventory.AllParts;
                 MessageBox.Show("No parts found.");
             }
         }
@@ -224,11 +222,11 @@ namespace InventoryApp
             bool found = false;
             if (textBoxProductsSearch.Text != "")
             {
-                for (int i = 0; i < InventoryApp.Inventory.Products.Count; i++)
+                for (int i = 0; i < Inventory.Products.Count; i++)
                 {
-                    if (InventoryApp.Inventory.Products[i].Name.ToUpper().Contains(textBoxProductsSearch.Text.ToUpper()))
+                    if (Inventory.Products[i].Name.ToUpper().Contains(textBoxProductsSearch.Text.ToUpper()))
                     {
-                        TempMatchingList.Add(InventoryApp.Inventory.Products[i]);
+                        TempMatchingList.Add(Inventory.Products[i]);
                         found = true;
                     }
                 }
@@ -241,7 +239,7 @@ namespace InventoryApp
 
             if (!found)
             {
-                dataGridView1.DataSource = InventoryApp.Inventory.Products;
+                dataGridView1.DataSource = Inventory.Products;
                 MessageBox.Show("No parts found.");
             }
         }
@@ -284,9 +282,9 @@ namespace InventoryApp
 
                 result = MessageBox.Show(message, caption, buttons);
 
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    InventoryApp.Inventory.Products.Remove(product);
+                    Inventory.removeProduct(product.ProductID);
                 }
             }
         }
