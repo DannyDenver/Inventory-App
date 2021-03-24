@@ -72,16 +72,15 @@ namespace InventoryApp
                     return;
                 }
 
-
                 if (label6.Text == "Machine ID")
                 {
                     Inhouse part = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
-                    InventoryApp.Inventory.Parts.Add(part);
+                    InventoryApp.Inventory.addPart(part);
                 }
                 else
                 {
                     Outsourced outsourced = new Outsourced((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, CompanyOrMachineID.Text);
-                    InventoryApp.Inventory.Parts.Add(outsourced);
+                    InventoryApp.Inventory.addPart(outsourced);
                 }
 
                 CloseForm();  
@@ -90,58 +89,27 @@ namespace InventoryApp
 
         private void modifyPart()
         {
-            foreach (Part p in InventoryApp.Inventory.Parts)
+            // outsourced => inhouse
+            if (partIsInHouse) 
             {
-                if (p.PartID == modifyingPart.PartID)
-                {
-                    // outsourced => inhouse
-                    if ((p is Outsourced) && partIsInHouse) 
-                    {
-                        Inhouse pInHouse = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
-                        InventoryApp.Inventory.Parts.Remove(p);
-                        InventoryApp.Inventory.Parts.Add(pInHouse);
-                        CloseForm();
-                        return;
-                    }
+                Inhouse pInHouse = new Inhouse((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, Int32.Parse(CompanyOrMachineID.Text));
+                InventoryApp.Inventory.updatePart(pInHouse.PartID, pInHouse);
 
-                    // inhouse => outsourced
-                    if((p is Inhouse) && !partIsInHouse)
-                    {
-                        Outsourced pOutsourced = new Outsourced((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, CompanyOrMachineID.Text);
-                        InventoryApp.Inventory.Parts.Remove(p);
-                        InventoryApp.Inventory.Parts.Add(pOutsourced);
-                        CloseForm();
-                        return;
-                    }
-
-                    //stays inhouse
-                    if ((p is Inhouse) && partIsInHouse)
-                    {
-                        Inhouse inhouse = p as Inhouse;
-                        inhouse.Name = Name.Text;
-                        inhouse.InStock = (int)Inventory.Value;
-                        inhouse.Price = Price.Value;
-                        inhouse.Max = (int)Max.Value;
-                        inhouse.Min = (int)Min.Value;
-                        inhouse.MachineID = Int32.Parse(CompanyOrMachineID.Text);
-
-                        CloseForm();
-                        return;
-                    }
-
-                    //stays outsourced
-                    Outsourced outsourced = p as Outsourced;
-                    outsourced.Name = Name.Text;
-                    outsourced.InStock = (int)Inventory.Value;
-                    outsourced.Price = Price.Value;
-                    outsourced.Max = (int)Max.Value;
-                    outsourced.Min = (int)Min.Value;
-                    outsourced.CompanyName = CompanyOrMachineID.Text;
-
-                    CloseForm();
-                    return;
-                }
+                CloseForm();
+                return;
             }
+
+            // inhouse => outsourced
+            if(!partIsInHouse)
+            {
+                Outsourced pOutsourced = new Outsourced((int)PartID.Value, Name.Text, Price.Value, (int)Inventory.Value, (int)Min.Value, (int)Max.Value, CompanyOrMachineID.Text);
+                InventoryApp.Inventory.updatePart(pOutsourced.PartID, pOutsourced);
+                CloseForm();
+                return;
+            }
+
+            CloseForm();
+            return;
         }
 
         private bool validInputs()
